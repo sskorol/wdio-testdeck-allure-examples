@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "types": [
+      "node",
+      "@wdio/sync",
+      "mocha",
+      "chai"
+    ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "removeComments": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "./node_modules"
+  ]
+}

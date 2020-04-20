@@ -1,0 +1,33 @@
+version: "3.6"
+
+services:
+  selenoid:
+    image: "aerokube/selenoid:latest-release"
+    ports:
+      - "4444:4444"
+    volumes:
+      - "./config:/etc/selenoid"
+      - "//var/run/docker.sock:/var/run/docker.sock"
+    command:
+      [
+        "-conf",
+        "/etc/selenoid/browsers.json",
+        "-container-network",
+        "wdio-testdeck-allure-examples_automation",
+      ]
+    networks:
+      - automation
+
+  selenoid-ui:
+    image: "aerokube/selenoid-ui:latest-release"
+    depends_on:
+      - selenoid
+    ports:
+      - "8082:8080"
+    command: ["--selenoid-uri", "http://selenoid:4444"]
+    networks:
+      - automation
+
+networks:
+  automation:
+    driver: bridge

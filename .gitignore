@@ -1,0 +1,7 @@
+.idea
+node_modules
+.env
+allure-results
+allure-report
+src/**/*.js
+src/**/*.d.ts
